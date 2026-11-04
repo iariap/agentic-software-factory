@@ -1,0 +1,40 @@
+# docs-ci — gate para PRs doc-only del harness (repo asf; issue #39, opción B).
+#
+# Por qué existe: `scripts/merge.sh` es fail-closed (exige checks reportados y
+# todos verdes). Un PR que sólo toca markdown no disparaba `ci.yml` (cuyos
+# paths son de código), quedaba sin checks y no se podía fusionar. Este
+# workflow le da a los PR doc-only un check real, que queda verde cuando el
+# documento está bien formado.
+#
+# Elección del linter (3 líneas): se usa `markdownlint-cli2` vía `npx` porque
+# el runner trae Node preinstalado (sin build ni compilación) y la versión se
+# pinnea (`@0.23.3`) para que el veredicto sea determinista; `pymarkdown`
+# exigiría `pip install` y es más frágil en el runner. La config
+# `.markdownlint.yml` desactiva sólo reglas de estilo/espaciado (p. ej.
+# `MD013` line-length, ruido en la prosa es-AR de la casa) y mantiene las
+# estructurales, así un PR doc-only falla sólo por errores reales.
+name: docs-ci
+
+on:
+  pull_request:
+    paths:
+      - "**.md"
+      - "docs/**"
+      - "specs/**"
+      - "config/policies/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    name: markdownlint
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: markdownlint-cli2 (config .markdownlint.yml)
+        run: npx --yes markdownlint-cli2@0.23.3 "**/*.md" "#node_modules" "#.factory"

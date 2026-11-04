@@ -1,0 +1,72 @@
+{
+  "default_risk": "medium",
+  "auto_merge": {
+    "mode": "enabled",
+    "eligible_risk": [
+      "low"
+    ],
+    "merge_method": "squash",
+    "require_ci_green": true,
+    "require_validation_section": true,
+    "post_deploy": {
+      "watch_main_run": true,
+      "health_env": "staging",
+      "watch_timeout_s": 900,
+      "auto_revert": true
+    }
+  },
+  "levels": {
+    "low": {
+      "reviewers": [
+        "reviewer-frontend"
+      ],
+      "auto_approve": true,
+      "human_approval": false
+    },
+    "medium": {
+      "reviewers": [
+        "reviewer-frontend",
+        "reviewer-infra"
+      ],
+      "auto_approve": false,
+      "human_approval": false
+    },
+    "high": {
+      "reviewers": [
+        "reviewer-security",
+        "reviewer-infra",
+        "reviewer-data",
+        "reviewer-frontend"
+      ],
+      "auto_approve": false,
+      "human_approval": true
+    }
+  },
+  "rules": [
+    {
+      "pattern": ".factory/**",
+      "risk": "medium",
+      "reason": "Metadata/policy de la app en su repo: cambio de gobernanza, nunca low"
+    },
+    {
+      "pattern": "supabase/migrations/**",
+      "risk": "high",
+      "reason": "Migraciones de base de datos, irreversibles sin cuidado"
+    },
+    {
+      "pattern": "deploy/**",
+      "risk": "high",
+      "reason": "Despliegue e infraestructura: producción involucrada"
+    },
+    {
+      "pattern": ".github/workflows/**",
+      "risk": "high",
+      "reason": "Pipeline CI/CD: gates de despliegue"
+    },
+    {
+      "pattern": "docs/**",
+      "risk": "low",
+      "reason": "Documentación"
+    }
+  ]
+}

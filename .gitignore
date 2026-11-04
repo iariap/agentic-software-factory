@@ -1,0 +1,12 @@
+work/
+state/
+.pi/npm/
+.pi/git/
+.pi/subagents/
+*.log
+.env
+*.jsonl
+__pycache__/
+*.pyc
+node_modules/
+.venv/

@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "pattern": "config/**",
+      "risk": "high",
+      "reason": "Registry de apps y politicas de riesgo: gobernanza del factory"
+    },
+    {
+      "pattern": ".opencode/**",
+      "risk": "high",
+      "reason": "Commands, agents y skills: comportamiento de los agentes"
+    },
+    {
+      "pattern": ".pi/**",
+      "risk": "high",
+      "reason": "Config de pi.dev (settings, subagents, scope de modelo, extensiones): comportamiento de los agentes"
+    },
+    {
+      "pattern": "scripts/**",
+      "risk": "high",
+      "reason": "Gates del factory (risk, babysit, auto-merge)"
+    },
+    {
+      "pattern": "AGENTS.md",
+      "risk": "high",
+      "reason": "Invariantes del harness"
+    },
+    {
+      "pattern": "opencode.json",
+      "risk": "high",
+      "reason": "Permisos del agente"
+    },
+    {
+      "pattern": "README.md",
+      "risk": "low",
+      "reason": "Documentacion"
+    },
+    {
+      "pattern": "specs/**",
+      "risk": "low",
+      "reason": "Specs del human builder"
+    }
+  ]
+}

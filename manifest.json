@@ -1,0 +1,51 @@
+{
+  "harness": {
+    "name": "Harness Software Factory",
+    "description": "Control tower multi-app factory environment. Source of truth for apps, policies, and development scripts.",
+    "type": "multi-agent-harness",
+    "version": "1.0.0"
+  },
+  "unified_source": {
+    "logic_file": "AGENTS.md",
+    "opencode_config": "opencode.json",
+    "intent": "Use this manifest to adapt the 'asf' harness to run alongside Opencode while keeping a single folder."
+  },
+  "registry": {
+    "source": "config/apps/*.json",
+    "resolver_script": "scripts/app_config.py",
+    "policy_source": "config/policies/base.json"
+  },
+  "execution": {
+    "scripts_path": "scripts/",
+    "work_dir": "work/",
+    "specs_dir": "specs/",
+    "state_dir": "state/",
+    "manager": "uv",
+    "dependency_command": "uv sync",
+    "lint_commands": [
+      "uv run ruff check scripts/",
+      "uv run ruff format scripts/",
+      "uv run ty check scripts/"
+    ]
+  },
+  "pipeline": {
+    "steps": ["spec", "implementation", "ci", "review", "deploy", "observazione"],
+    "commands": [
+      "/factory-build <app> \"spec...\" → Writes spec, implements, runs checks, opens PR.",
+      "/factory-review <app> <pr> → risk.py classification, domain reviewers report.",
+      "/factory-merge <app> <pr> → auto-merge.py: Fuse low-risk PRs with CI green.",
+      "/factory-deploy <app> <pr|sha> → Deploy to staging, verify /health.",
+      "/factory-perf <app> → Perf analysis on metrics.",
+      "/factory-incident <app> <ctx> → Sevbot incident context."
+    ],
+    "pi_adapter_note": "When running in Pi, adapt slash-commands to Pi capabilities using 'scripts/' helpers directly. e.g. 'Run the harness health check for mi-mesa' -> executes 'scripts/health.sh mi-mesa staging'."
+  },
+  "safety_gate": {
+    "policy": "high_risk",
+    "rules": [
+      "Never execute destructive actions or payments without asking.",
+      "Merge via 'auto-merge.py' is safe by default (shadow mode).",
+      "Production deploy requires explicit human order."
+    ]
+  }
+}

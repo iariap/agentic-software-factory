@@ -1,0 +1,23 @@
+[project]
+name = "asf-harness"
+version = "0.1.0"
+description = "Control tower multi-app del agentic software factory (scripts del harness; la lógica de las apps vive en sus repos)."
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14",
+    "ty>=0.0.5",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ty.src]
+include = ["scripts"]

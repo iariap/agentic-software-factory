@@ -1,0 +1,11 @@
+{
+  "id": "x6200",
+  "repo": "iariap/x6200_gui",
+  "remote": "https://github.com/iariap/x6200_gui.git",
+  "branch": "main",
+  "checkout": "work/x6200_gui",
+  "ci": {
+    "provider": "none"
+  },
+  "note": "puntero: la metadata vive en .factory/ del repo de la app (checks, policy); ROM de radio en C (Xiegu X6200), sin entornos cloud ni metrics; ci.provider=none: no corre GitHub Actions en PRs, valida con la matriz local (check-matrix) declarada en la sección Validación del PR"
+}

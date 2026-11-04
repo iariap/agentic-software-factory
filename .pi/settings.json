@@ -1,0 +1,145 @@
+{
+  "packages": ["npm:pi-subagents@0.66.0"],
+  "skills": ["../.opencode/skill"],
+  "subagents": {
+    "projectRootResolution": "git-root",
+    "defaultModel": "openrouter/deepseek/deepseek-v4.1-flash",
+    "defaultThinking": "low",
+    "agentOverrides": {
+      "coder": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": ["openrouter/deepseek/deepseek-v4.1-flash-1017"]
+      },
+      "deploy-agent": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "interrogator": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "perf-factory": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "reviewer-data": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "reviewer-frontend": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "reviewer-infra": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "reviewer-security": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "security-guardian": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "sevbot": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "worker": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "delegate": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "scout": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "researcher": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "reviewer": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "oracle": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "advisor": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "planner": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "tester": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "pathfinder": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "synthesizer": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "code-analyzer": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "medium",
+        "fallbackModels": []
+      },
+      "supervisor": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "evidence-auditor": {
+        "model": "openrouter/deepseek/deepseek-v4.1-flash",
+        "thinking": "low",
+        "fallbackModels": []
+      },
+      "claude-code": { "disabled": true },
+      "claude-code-writer": { "disabled": true },
+      "codex-exec": { "disabled": true },
+      "codex-exec-writer": { "disabled": true },
+      "cursor-agent": { "disabled": true },
+      "cursor-agent-writer": { "disabled": true }
+    },
+    "modelScope": {
+      "enforce": true,
+      "strict": true,
+      "allow": [
+        "openrouter/deepseek/deepseek-v4.1-flash",
+        "openrouter/deepseek/deepseek-v4.1-flash-1017"
+      ]
+    }
+  }
+}

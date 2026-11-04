@@ -1,0 +1,7 @@
+{
+  "id": "farmaruta",
+  "repo": "iariap/farmaruta",
+  "remote": "https://github.com/iariap/farmaruta.git",
+  "checkout": "work/farmaruta",
+  "note": "puntero: la metadata vive en .factory/ del repo de la app (entornos, checks, policy)"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mi-mesa",
+  "repo": "iariap/mi-mesa-recetario",
+  "remote": "https://github.com/iariap/mi-mesa-recetario.git",
+  "checkout": "work/mi-mesa-recetario",
+  "note": "puntero: la metadata vive en .factory/ del repo de la app (alias mi-receta, entornos, metricas, checks, policy)"
+}

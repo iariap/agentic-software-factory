@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "pattern": "src/**",
+      "risk": "high",
+      "reason": "Firmware en C/C++ del X6200: GUI, DSP, CAT, codecs. Es el runtime de la radio (RAM)"
+    },
+    {
+      "pattern": "lvgl/**",
+      "risk": "high",
+      "reason": "Submodulo LVGL pineado (v8.3.11): no actualizar ni tocar; define todo el render"
+    },
+    {
+      "pattern": "lv_conf.h",
+      "risk": "high",
+      "reason": "Configuracion de LVGL compilada dentro de la ROM"
+    },
+    {
+      "pattern": "lv_drv_conf.h",
+      "risk": "high",
+      "reason": "Configuracion de los drivers LVGL compilada dentro de la ROM"
+    },
+    {
+      "pattern": "lv_drivers/**",
+      "risk": "high",
+      "reason": "Drivers de display/entrada del firmware"
+    },
+    {
+      "pattern": "rootfs/**",
+      "risk": "high",
+      "reason": "Imagen del sistema: archivos que se instalan tal cual en la radio"
+    },
+    {
+      "pattern": "sql/**",
+      "risk": "high",
+      "reason": "Datos parametricos de la ROM (bandas, memoria, modos) que se instalan en la imagen como params.default.db"
+    },
+    {
+      "pattern": "third-party/**",
+      "risk": "high",
+      "reason": "Dependencias vendorizadas compiladas en el firmware (js8core, rapidxml, utf8)"
+    },
+    {
+      "pattern": "buildroot/**",
+      "risk": "high",
+      "reason": "Configuracion de build e imagen del firmware (toolchain y sistema)"
+    },
+    {
+      "pattern": "u-boot/**",
+      "risk": "high",
+      "reason": "Bootloader: imagen y configuracion de arranque de la radio"
+    },
+    {
+      "pattern": "CMakeLists.txt",
+      "risk": "medium",
+      "reason": "Entrypoint de build de la ROM (cross-compile)"
+    },
+    {
+      "pattern": "tools/ui_harness/**",
+      "risk": "medium",
+      "reason": "Arnes de UI host (C + Docker): base de render del pipeline A/B"
+    },
+    {
+      "pattern": "tools/ab_testing/**",
+      "risk": "low",
+      "reason": "Framework Python A/B: es host-side y nunca corre en la ROM"
+    },
+    {
+      "pattern": "tests/**",
+      "risk": "low",
+      "reason": "Tests nativos/estaticos y gates del arnes"
+    },
+    {
+      "pattern": ".factory/**",
+      "risk": "medium",
+      "reason": "Metadata/policy de la app en su repo: cambio de gobernanza, nunca low"
+    },
+    {
+      "pattern": "docs/**",
+      "risk": "low",
+      "reason": "Documentacion"
+    },
+    {
+      "pattern": "doc/**",
+      "risk": "low",
+      "reason": "Documentacion"
+    },
+    {
+      "pattern": "README.md",
+      "risk": "low",
+      "reason": "Documentacion"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "asf",
+  "repo": "iariap/asf",
+  "remote": "https://github.com/iariap/asf.git",
+  "checkout": ".",
+  "note": "puntero; la metadata vive en .factory/ de este repo"
+}

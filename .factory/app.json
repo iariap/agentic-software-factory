@@ -1,0 +1,9 @@
+{
+  "id": "asf",
+  "aliases": [
+    "harness"
+  ],
+  "branch": "main",
+  "environments": {},
+  "description": "El propio harness (control tower). Auto-gobernado: CI + orden humana para fusear."
+}

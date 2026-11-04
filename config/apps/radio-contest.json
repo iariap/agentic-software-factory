@@ -1,0 +1,7 @@
+{
+  "id": "radio-contest",
+  "repo": "iariap/radio-contest",
+  "remote": "https://github.com/iariap/radio-contest.git",
+  "checkout": "work/radio-contest",
+  "note": "puntero: la metadata vive en .factory/ del repo de la app"
+}

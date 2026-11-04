@@ -1,0 +1,46 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "build": {
+      "permission": { "task": { "coder": "allow" } }
+    },
+    "general": { "model": "opencode/deepseek-v4.1-flash" },
+    "explore": { "model": "opencode/deepseek-v4.1-flash" }
+  },
+  "references": {
+    "mi-mesa": {
+      "repository": "iariap/mi-mesa-recetario",
+      "branch": "main",
+      "description": "Repo de la app Mi Mesa: backend FastAPI + PydanticAI, frontend React, Supabase, deploy Cloud Run. Usar para implementar, revisar y desplegar cambios."
+    }
+  },
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "*": "allow",
+      "*push * main*": "deny",
+      "*push origin main*": "deny",
+      "*deploy.sh production*": "deny",
+      "*migrate.sh production*": "deny",
+      "*migrate.sh --*production*": "deny",
+      "*gcloud run services update*": "deny",
+      "*rm -rf*": "deny",
+      "*DROP TABLE*": "deny",
+      "*drop table*": "deny",
+      "*supabase db reset*": "deny"
+    },
+    "external_directory": {
+      "*": "ask"
+    }
+  },
+  "skills": {
+    "paths": [".opencode/skill"]
+  },
+  "mcp": {
+    "github": {
+      "type": "remote",
+      "url": "https://api.github.com",
+      "enabled": false
+    }
+  }
+}

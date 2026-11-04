@@ -1,0 +1,26 @@
+# Config mínima de markdownlint para el gate docs-ci del harness (repo asf).
+#
+# Ideología: el corpus es prosa larga en es-AR (estilo de la casa) más docs
+# históricos de corridas. Las reglas puramente de ESTILO/espaciado quedan OFF
+# para no emitir cientos de avisos de forma; se mantienen las reglas
+# ESTRUCTURALES (jerarquía y unicidad de headings, indentación de listas,
+# espacios finales, alt de imágenes, etc.), que sí delatan un documento roto.
+# Meta: un PR doc-only falla sólo por errores reales de formato/estructura,
+# nunca por estilo de redacción.
+#
+# Reglas OFF y por qué (todas violadas por el corpus actual; apagarlas evita
+# ruido de forma sin perder la capacidad de frenar un doc roto):
+MD004: false # ul-style: el corpus mezcla `-` y `+` como viñeta
+MD010: false # no-hard-tabs: hay tabs de indentación en docs históricos
+MD013: false # line-length: la casa escribe en es-AR con frases largas
+MD022: false # blanks-around-headings: whitespace, no estructura
+MD026: false # no-trailing-punctuation: headings con `:`/`.` final
+MD029: false # ol-prefix: listas numeradas que no arrancan en 1
+MD031: false # blanks-around-fences: whitespace alrededor de bloques
+MD032: false # blanks-around-lists: whitespace alrededor de listas
+MD033: false # no-inline-html: se usa HTML suelto en docs
+MD034: false # no-bare-urls: URLs peladas en specs
+MD040: false # fenced-code-language: fences sin lenguaje
+MD041: false # first-line-heading: docs que abren con prosa, no con `#`
+MD047: false # single-trailing-newline: docs históricos sin newline final
+MD060: false # table-column-style: estilo de pipes en tablas
